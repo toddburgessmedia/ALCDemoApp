@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:mars_flutter/model/planet.dart';
+import 'package:mars_flutter/ui/mars_tab_page.dart';
 
 class ALCHomePage extends StatefulWidget {
   ALCHomePage({Key? key, required this.title}) : super(key: key);
@@ -30,7 +32,14 @@ class _ALCHomePageState extends State<ALCHomePage> {
                     Tab(icon: Icon(Icons.web),)
                   ],
                 ),
-              )
+              ),
+              body: TabBarView(
+                children: [
+                  MarsTabPage(null),
+                  Text('Planets Placeholder'),
+                  Text('WebView Placeholder')
+                ],
+              ),
 
           ),
 
