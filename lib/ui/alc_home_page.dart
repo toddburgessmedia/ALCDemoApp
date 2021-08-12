@@ -35,7 +35,7 @@ class _ALCHomePageState extends State<ALCHomePage> {
               ),
               body: TabBarView(
                 children: [
-                  MarsTabPage(null),
+                  MarsTabPage(),
                   Text('Planets Placeholder'),
                   Text('WebView Placeholder')
                 ],
