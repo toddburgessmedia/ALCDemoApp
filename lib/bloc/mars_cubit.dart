@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:mars_flutter/model/planet.dart';
 import 'package:mars_flutter/repository/mars_repository.dart';
 
-part 'mars_state.dart';
+part 'planet_state.dart';
 
 class MarsCubit extends Cubit<PlanetState> {
 
