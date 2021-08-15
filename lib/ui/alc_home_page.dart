@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mars_flutter/model/planet.dart';
+import 'package:mars_flutter/ui/alc_tab_page.dart';
 import 'package:mars_flutter/ui/mars_tab_page.dart';
 import 'package:mars_flutter/ui/planets_tab_page.dart';
 
@@ -38,7 +39,7 @@ class _ALCHomePageState extends State<ALCHomePage> {
                 children: [
                   MarsTabPage(),
                   PlanetsTabPage(),
-                  Text('WebView Placeholder')
+                  ALCTabPage()
                 ],
               ),
 
