@@ -23,28 +23,31 @@ class _ALCHomePageState extends State<ALCHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: DefaultTabController(
-          length: 3,
-          child: Scaffold(
-              appBar: AppBar(
-                bottom: TabBar(
-                  tabs: [
-                    Text('Mars'),
-                    Text('Planets'),
-                    Text('Web')
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: DefaultTabController(
+            length: 3,
+            child: Scaffold(
+                appBar: AppBar(
+                  bottom: TabBar(
+                    tabs: [
+                      Text('Mars'),
+                      Text('Planets'),
+                      Text('Web')
+                    ],
+                  ),
+                ),
+                body: TabBarView(
+                  children: [
+                    MarsTabPage(),
+                    PlanetsTabPage(),
+                    ALCTabPage()
                   ],
                 ),
-              ),
-              body: TabBarView(
-                children: [
-                  MarsTabPage(),
-                  PlanetsTabPage(),
-                  ALCTabPage()
-                ],
-              ),
+
+            ),
 
           ),
-
         )
       // This trailing comma makes auto-formatting nicer for build methods.
     );

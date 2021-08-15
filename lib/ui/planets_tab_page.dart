@@ -23,10 +23,12 @@ class _PlanetsTabPageState extends State<PlanetsTabPage> {
 
   changeOpacity() {
     Future.delayed(Duration(seconds: 1), () {
-      setState(() {
-        opacity = opacity == 0.0 ? 1.0 : 0.0;
-        changeOpacity();
-      });
+      if (this.mounted) {
+        setState(() {
+          opacity = opacity == 0.0 ? 1.0 : 0.0;
+          changeOpacity();
+        });
+      }
     });
   }
 

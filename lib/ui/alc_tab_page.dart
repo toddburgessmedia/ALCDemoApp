@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -15,11 +14,7 @@ class _ALCTabPageState extends State<ALCTabPage> {
   int _position = 1;
   double _progress = 0.0;
 
-  @override
-  void initState() {}
-
   _showAlertDialog(BuildContext context) {
-
     AlertDialog alert = AlertDialog(
       title: Text("WebView Notification"),
       content: Text("The webpage has finished loading"),
@@ -49,8 +44,7 @@ class _ALCTabPageState extends State<ALCTabPage> {
           key: _key,
           initialUrl: 'https://www.alc.ca/content/alc-mobile/en.html',
           onProgress: (int loaded) {
-            print("loaded this much $loaded");
-            if (this.mounted) {
+            if (!this.mounted) {
               setState(() {
                 _progress = loaded.toDouble();
               });
@@ -71,17 +65,14 @@ class _ALCTabPageState extends State<ALCTabPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                    child:
-                      Text('Webpage Loading Progress')),
-                      LinearProgressIndicator(
-                        value: _progress,
-                        backgroundColor: Colors.blue,
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.red))
+                Container(child: Text('Webpage Loading Progress')),
+                LinearProgressIndicator(
+                    value: _progress,
+                    backgroundColor: Colors.blue,
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.red))
               ],
             ),
           ),
-
         )
       ],
     );
