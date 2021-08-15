@@ -23,8 +23,7 @@ class MarsTabPage extends StatelessWidget {
           } else if (state is PlanetLoaded) {
             return MarsTabePageDisplay(state.planet);
           } else {
-            print('lets do nothing');
-            return Text('lets do nothing');
+            return Text('unaccounted for state');
           }
         },
       ),
