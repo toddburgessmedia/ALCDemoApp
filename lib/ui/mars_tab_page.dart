@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mars_flutter/bloc/mars_cubit.dart';
+import 'package:mars_flutter/bloc/planet_bloc.dart';
+import 'package:mars_flutter/bloc/planet_event.dart';
 import 'package:mars_flutter/model/planet.dart';
 
 class MarsTabPage extends StatelessWidget {
@@ -11,14 +13,15 @@ class MarsTabPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final marsCubit = BlocProvider.of<MarsCubit>(context);
-    marsCubit.getMars();
+    // final marsCubit = BlocProvider.of<MarsCubit>(context);
+    // marsCubit.getMars();
+    final planetBloc = BlocProvider.of<PlanetBloc>(context);
+    planetBloc.add(GetMars());
     return Container(
       padding: EdgeInsets.symmetric(vertical: 16),
-      child: BlocBuilder<MarsCubit,PlanetState>(
+      child: BlocBuilder<PlanetBloc,PlanetState>(
         builder: (context,state) {
           if (state is PlanetInitial) {
-            print('state is initial');
             return Text("Initial");
           } else if (state is PlanetLoaded) {
             return MarsTabePageDisplay(state.planet);
@@ -51,6 +54,7 @@ class _MarsTabePageDisplayState extends State<MarsTabePageDisplay> {
 
   @override
   void initState() {
+    super.initState();
     _randomFact = _getRandomFact();
   }
 

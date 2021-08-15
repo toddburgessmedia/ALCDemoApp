@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mars_flutter/bloc/mars_cubit.dart';
+import 'package:mars_flutter/bloc/planet_bloc.dart';
 import 'package:mars_flutter/repository/mars_repository.dart';
 import 'package:mars_flutter/ui/alc_home_page.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: BlocProvider(
-        create: (context) => MarsCubit(MarsRepository()),
+        create: (context) => PlanetBloc(MarsRepository()),
         child: ALCHomePage(title: 'ALC Test App'),
       )
       //,
