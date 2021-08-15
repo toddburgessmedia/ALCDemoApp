@@ -30,4 +30,19 @@ class MarsRepository {
 
   }
 
+  Future<List<Planet>> getPlanets() async {
+
+    List<Planet> planets = [];
+
+    final marsService = MarsService.create(chopper);
+    final response = await marsService.getMars();
+    final jsonDate = json.decode(response.bodyString);
+
+    final marsList = Planet.fromJson(jsonDate);
+
+    planets.add(marsList);
+    return planets;
+
+  }
+
 }

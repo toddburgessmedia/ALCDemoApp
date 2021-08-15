@@ -12,6 +12,9 @@ abstract class MarsService extends ChopperService {
   @Get(path: '/mars_api.json')
   Future<Response> getMars();
 
+  @Get(path: '/mars_api.json')
+  Future<Response> getPlanets();
+
 }
 
 

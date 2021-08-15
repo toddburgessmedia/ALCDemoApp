@@ -5,19 +5,19 @@ import 'package:mars_flutter/repository/mars_repository.dart';
 
 part 'mars_state.dart';
 
-class MarsCubit extends Cubit<MarsState> {
+class MarsCubit extends Cubit<PlanetState> {
 
   final MarsRepository _marsRepo;
 
-  MarsCubit(this._marsRepo) : super (MarsInitial());
+  MarsCubit(this._marsRepo) : super (PlanetInitial());
 
   Future<void> getMars() async {
     try {
-      emit(MarsLoading());
+      emit(PlanetLoading());
       final mars = await _marsRepo.getMars();
-      emit(MarsLoaded(mars));
+      emit(PlanetLoaded(mars));
     } on Exception {
-      emit(MarsError("Unable to load the weather"));
+      emit(PlanetError("Unable to load the weather"));
     }
   }
 }

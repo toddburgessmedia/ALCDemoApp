@@ -17,9 +17,8 @@ class _PlanetsTabPageState extends State<PlanetsTabPage> {
   @override
   void initState() {
     super.initState();
-    changeOpacity();
     _todayDate = _formatDate();
-    print('date $_todayDate');
+    changeOpacity();
   }
 
   changeOpacity() {

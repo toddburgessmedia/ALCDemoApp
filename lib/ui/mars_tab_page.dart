@@ -15,12 +15,12 @@ class MarsTabPage extends StatelessWidget {
     marsCubit.getMars();
     return Container(
       padding: EdgeInsets.symmetric(vertical: 16),
-      child: BlocBuilder<MarsCubit,MarsState>(
+      child: BlocBuilder<MarsCubit,PlanetState>(
         builder: (context,state) {
-          if (state is MarsInitial) {
+          if (state is PlanetInitial) {
             print('state is initial');
             return Text("Initial");
-          } else if (state is MarsLoaded) {
+          } else if (state is PlanetLoaded) {
             return MarsTabePageDisplay(state.planet);
           } else {
             print('lets do nothing');

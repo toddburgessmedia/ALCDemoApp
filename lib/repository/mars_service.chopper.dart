@@ -22,4 +22,11 @@ class _$MarsService extends MarsService {
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
+
+  @override
+  Future<Response<dynamic>> getPlanets() {
+    final $url = 'https://neonfish.net/mars_api.json';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
 }

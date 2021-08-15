@@ -2,28 +2,28 @@
 part of 'mars_cubit.dart';
 
 
-abstract class MarsState {
-  const MarsState();
+abstract class PlanetState {
+  const PlanetState();
 }
 
-class MarsInitial extends MarsState {
-  const MarsInitial();
+class PlanetInitial extends PlanetState {
+  const PlanetInitial();
 }
 
-class MarsLoading extends MarsState {
-  const MarsLoading();
+class PlanetLoading extends PlanetState {
+  const PlanetLoading();
 }
 
-class MarsLoaded extends MarsState {
+class PlanetLoaded extends PlanetState {
 
   final Planet planet;
-  const MarsLoaded(this.planet);
+  const PlanetLoaded(this.planet);
 
   @override
   bool operator == (Object o) {
     if (identical(this, o)) return true;
 
-    return o is MarsLoaded && o.planet == planet;
+    return o is PlanetLoaded && o.planet == planet;
   }
 
   @override
@@ -31,16 +31,16 @@ class MarsLoaded extends MarsState {
 
 }
 
-class MarsError extends MarsState {
+class PlanetError extends PlanetState {
 
   final String error;
-  const MarsError(this.error);
+  const PlanetError(this.error);
 
   @override
   bool operator ==(Object o) {
     if(identical(this,o)) return true;
 
-    return o is MarsError && o.error == error;
+    return o is PlanetError && o.error == error;
   }
 
   @override
