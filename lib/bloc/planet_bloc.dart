@@ -24,8 +24,14 @@ class PlanetBloc extends Bloc<PlanetEvent,PlanetState> {
         emit(PlanetError("Unable to load Mars"));
       }
     }
-    if (event is GetPlanets) {
-
+    try {
+      if (event is GetPlanets) {
+        emit(PlanetLoading());
+        final planets = await _planetRepository.getPlanets();
+        emit(AllPlanetsLoaded(planets));
+      }
+    } on Exception {
+      emit(PlanetError("Unable to load the planets"));
     }
   }
 }
