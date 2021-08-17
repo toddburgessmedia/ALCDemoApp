@@ -10,6 +10,7 @@ import 'package:mars_flutter/bloc/planet_bloc.dart';
 import 'package:mars_flutter/bloc/planet_event.dart';
 import 'package:mars_flutter/model/planet.dart';
 import 'package:mars_flutter/model/planets.dart';
+import 'package:mars_flutter/model/planets_utility.dart';
 import 'package:mars_flutter/repository/dummy_data.dart';
 import 'package:mars_flutter/ui/planet_display.dart';
 
@@ -82,7 +83,7 @@ class _PlanetsTabsPageDisplayState extends State<PlanetsTabsPageDisplay> {
 
   @override
   Widget build(BuildContext context) {
-    List<Planet> thePlanets = widget.planets.planets;
+    List<Planet> thePlanets = PlanetsUtility.sortDescending(widget.planets.planets);
     return Container(
       child: ListView(
         children: [
