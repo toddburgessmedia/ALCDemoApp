@@ -3,6 +3,8 @@ import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
 import 'package:mars_flutter/model/planet.dart';
+import 'package:mars_flutter/model/planets.dart';
+import 'package:mars_flutter/repository/dummy_data.dart';
 import 'package:mars_flutter/repository/mars_service.dart';
 
 class MarsRepository {
@@ -20,29 +22,31 @@ class MarsRepository {
 
   Future<Planet> getMars() async {
 
-    final marsService = MarsService.create(chopper);
-    final response = await marsService.getMars();
-    final jsonDate = json.decode(response.bodyString);
+    // final marsService = MarsService.create(chopper);
+    // final response = await marsService.getMars();
+    // final jsonDate = json.decode(response.bodyString);
+    // print(response.bodyString);
 
-    final marsList = Planet.fromJson(jsonDate);
+    final jsonData = json.decode(DummyData.marsData);
+    final marsList = Planet.fromJson(jsonData);
 
     return marsList;
 
   }
 
-  Future<List<Planet>> getPlanets() async {
+  Future<Planets> getPlanets() async {
 
-    List<Planet> planets = [];
+    //networking version
+    // final marsService = MarsService.create(chopper);
+    // final response = await marsService.getMars();
+    // final jsonDate = json.decode(response.bodyString);
 
-    final marsService = MarsService.create(chopper);
-    final response = await marsService.getMars();
-    final jsonDate = json.decode(response.bodyString);
+    //dummy version
+    final response = DummyData.getPlanets();
+    final jsonData = json.decode(response);
+    final planets = Planets.fromJson(jsonData);
 
-    final marsList = Planet.fromJson(jsonDate);
-
-    planets.add(marsList);
     return planets;
-
   }
 
 }
