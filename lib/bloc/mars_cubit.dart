@@ -1,6 +1,7 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:mars_flutter/model/planet.dart';
+import 'package:mars_flutter/model/planets.dart';
 import 'package:mars_flutter/repository/mars_repository.dart';
 
 part 'planet_state.dart';

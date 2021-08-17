@@ -33,7 +33,7 @@ class PlanetLoaded extends PlanetState {
 
 class AllPlanetsLoaded extends PlanetState {
 
-  List<Planet> planets;
+  Planets planets;
   AllPlanetsLoaded(this.planets);
 
   // @override

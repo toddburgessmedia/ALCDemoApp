@@ -36,12 +36,13 @@ dependencies:
   bloc: ^7.0.0
   flutter_bloc: ^7.1.0
   intl: ^0.17.0
-#  native_webview: ^1.1.0
   webview_flutter: ^2.0.12
+  mockito: ^5.0.14
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

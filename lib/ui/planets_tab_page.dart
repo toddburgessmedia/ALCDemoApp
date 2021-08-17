@@ -1,11 +1,17 @@
 
+// import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:mars_flutter/bloc/mars_cubit.dart';
 import 'package:mars_flutter/bloc/planet_bloc.dart';
 import 'package:mars_flutter/bloc/planet_event.dart';
 import 'package:mars_flutter/model/planet.dart';
+import 'package:mars_flutter/model/planets.dart';
+import 'package:mars_flutter/repository/dummy_data.dart';
+import 'package:mars_flutter/ui/planet_display.dart';
 
 class PlanetsTabPage extends StatefulWidget {
 
@@ -37,7 +43,7 @@ class _PlanetsTabPageState extends State<PlanetsTabPage> {
 
 class PlanetsTabsPageDisplay extends StatefulWidget {
   
-  List<Planet> planets;
+  Planets planets;
   
   PlanetsTabsPageDisplay(this.planets) : super();
   
@@ -76,16 +82,34 @@ class _PlanetsTabsPageDisplayState extends State<PlanetsTabsPageDisplay> {
 
   @override
   Widget build(BuildContext context) {
+    List<Planet> thePlanets = widget.planets.planets;
     return Container(
-      child: Column(
+      child: ListView(
         children: [
           AnimatedOpacity(
             opacity: opacity,
             duration: const Duration(milliseconds: 1000),
-            child: Text(_todayDate),
+            child: Center(child: Text(_todayDate)),
+          ),
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: thePlanets.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  child: Column(
+                    children: [
+                      PlanetDisplay(planet: thePlanets[index])
+                    ],
+                  ),
+
+                );
+              }
           )
         ],
       ),
     );
   }
 }
+
+
