@@ -9,6 +9,7 @@ import 'package:mars_flutter/bloc/planet_event.dart';
 import 'mars_tab_page_display.dart';
 
 class MarsTabPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final planetBloc = BlocProvider.of<PlanetBloc>(context);

@@ -17,15 +17,13 @@ class _ALCHomePageState extends State<ALCHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('ALC Test App'),
-        ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: DefaultTabController(
             length: 3,
             child: Scaffold(
                 appBar: AppBar(
+                  title: Text('ALC Test App'),
                   bottom: TabBar(
                     tabs: [
                       Text('Mars'),
