@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
         create: (context) => PlanetBloc(MarsRepository()),
-        child: ALCHomePage(title: 'ALC Test App'),
+        child: ALCHomePage(),
       )
       //,
     );
