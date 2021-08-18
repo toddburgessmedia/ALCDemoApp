@@ -16,4 +16,9 @@ class PlanetsUtility {
 
     return target;
   }
+
+  static double getLargestRadius(List<Planet> target) {
+
+    return target.reduce((a, b) => a.diameter > b.diameter? a: b).diameter.toDouble();
+  }
 }

@@ -2,8 +2,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:mars_flutter/bloc/mars_cubit.dart';
 import 'package:mars_flutter/bloc/planet_event.dart';
-import 'package:mars_flutter/model/planet.dart';
-import 'package:flutter/material.dart';
+import 'package:mars_flutter/model/planets.dart';
+import 'package:mars_flutter/model/planets_utility.dart';
 import 'package:mars_flutter/repository/mars_repository.dart';
 
 class PlanetBloc extends Bloc<PlanetEvent,PlanetState> {
@@ -17,21 +17,33 @@ class PlanetBloc extends Bloc<PlanetEvent,PlanetState> {
 
     if (event is GetMars) {
       try {
-        emit(PlanetLoading());
+        yield PlanetLoading();
         final mars = await _planetRepository.getMars();
-        emit(PlanetLoaded(mars));
+        yield PlanetLoaded(mars);
       } on Exception {
-        emit(PlanetError("Unable to load Mars"));
+        yield PlanetError("Unable to load Mars");
       }
     }
+    if (event is GetPlanets) {
+      yield PlanetLoading();
+      final planets = await _planetRepository.getPlanets();
+      yield AllPlanetsLoaded(planets);
+    }
     try {
-      if (event is GetPlanets) {
-        emit(PlanetLoading());
-        final planets = await _planetRepository.getPlanets();
-        emit(AllPlanetsLoaded(planets));
-      }
     } on Exception {
-      emit(PlanetError("Unable to load the planets"));
+      yield PlanetError("Unable to load the planets");
+    }
+
+    if (event is GetPlanetsFiltered) {
+      try {
+        print('filtered!! ${event.diameter}');
+        yield PlanetLoading();
+        final planets = await _planetRepository.getPlanets();
+        final planetsFiltered = Planets(PlanetsUtility.filterByRadius(planets.planets, event.diameter));
+        yield PlanetsFiltered(planetsFiltered);
+      } on Exception {
+          yield PlanetError('unable to load planets');
+      }
     }
   }
 }

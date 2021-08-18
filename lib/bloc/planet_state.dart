@@ -19,15 +19,15 @@ class PlanetLoaded extends PlanetState {
   final Planet planet;
   const PlanetLoaded(this.planet);
 
-  // @override
-  // bool operator == (Object o) {
-  //   if (identical(this, o)) return true;
-  //
-  //   return o is PlanetLoaded && o.planet == planet;
-  // }
-  //
-  // @override
-  // int get hashCode => planet.hashCode;
+  @override
+  bool operator == (Object o) {
+    if (identical(this, o)) return true;
+
+    return o is PlanetLoaded && o.planet == planet;
+  }
+
+  @override
+  int get hashCode => planet.hashCode;
 
 }
 
@@ -36,15 +36,33 @@ class AllPlanetsLoaded extends PlanetState {
   Planets planets;
   AllPlanetsLoaded(this.planets);
 
-  // @override
-  // bool operator == (Object o) {
-  //   if (identical(this, o)) return true;
-  //
-  //   return o is PlanetLoaded && o.planet == planets;
-  // }
-  //
-  // @override
-  // int get hashCode => planets.hashCode;
+  @override
+  bool operator == (Object o) {
+    if (identical(this, o)) return true;
+
+    return o is PlanetLoaded && o.planet == planets;
+  }
+
+  @override
+  int get hashCode => planets.hashCode;
+
+}
+
+class PlanetsFiltered extends PlanetState {
+  Planets planets;
+  PlanetsFiltered(this.planets);
+
+  @override
+  bool operator == (Object o) {
+    if (identical(this, o)) return true;
+
+    return o is PlanetsFiltered && o.planets == planets;
+  }
+
+  @override
+  int get hashCode => planets.hashCode;
+
+
 
 }
 
