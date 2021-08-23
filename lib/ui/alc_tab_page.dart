@@ -12,7 +12,11 @@ class ALCTabPage extends StatefulWidget {
 class _ALCTabPageState extends State<ALCTabPage> {
   final _key = UniqueKey();
   int _position = 1;
-  double _progress = 0.0;
+  double _progress = 0;
+
+
+
+
 
   _showAlertDialog(BuildContext context) {
     AlertDialog alert = AlertDialog(
@@ -40,40 +44,37 @@ class _ALCTabPageState extends State<ALCTabPage> {
     return IndexedStack(
       index: _position,
       children: <Widget>[
-        Container(
-          child: WebView(
-            key: _key,
-            initialUrl: 'https://www.alc.ca/content/alc-mobile/en.html',
-            onProgress: (int loaded) {
-              if (!this.mounted) {
-                setState(() {
-                  _progress = loaded.toDouble();
-                });
-              }
-            },
-            javascriptMode: JavascriptMode.unrestricted,
-            onPageFinished: (String url) {
+        WebView(
+          key: _key,
+          initialUrl: 'https://www.alc.ca/content/alc-mobile/en.html',
+          onProgress: (int loaded) {
               setState(() {
-                _position = 0;
+                _progress = loaded.toDouble();
               });
-              _showAlertDialog(context);
-            },
-          ),
+              print('progress $loaded & $_progress');
+          },
+          javascriptMode: JavascriptMode.unrestricted,
+          onPageFinished: (String url) {
+            setState(() {
+              _position = 0;
+            });
+            _showAlertDialog(context);
+          },
         ),
-        Container(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(child: Text('Webpage Loading Progress')),
-                LinearProgressIndicator(
-                    value: _progress,
-                    backgroundColor: Colors.blue,
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.red))
-              ],
-            ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(child: Text('Webpage Loading Progress')),
+              LinearProgressIndicator(
+                  value: _progress,
+                  minHeight: 25,
+                  backgroundColor: Colors.cyanAccent,
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.red)
+              )
+            ],
           ),
         )
       ],
