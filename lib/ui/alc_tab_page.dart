@@ -26,6 +26,9 @@ class _ALCTabPageState extends State<ALCTabPage> {
         TextButton(
           child: Text("Awesome"),
           onPressed: () {
+            setState(() {
+              _position = 0;
+            });
             Navigator.of(context).pop();
           },
         )
@@ -55,9 +58,7 @@ class _ALCTabPageState extends State<ALCTabPage> {
           },
           javascriptMode: JavascriptMode.unrestricted,
           onPageFinished: (String url) {
-            setState(() {
-              _position = 0;
-            });
+
             _showAlertDialog(context);
           },
         ),
