@@ -54,7 +54,6 @@ class _ALCTabPageState extends State<ALCTabPage> {
               setState(() {
                 _progress = loaded.toDouble();
               });
-              print('progress $loaded & $_progress');
           },
           javascriptMode: JavascriptMode.unrestricted,
           onPageFinished: (String url) {
