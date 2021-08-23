@@ -40,23 +40,25 @@ class _ALCTabPageState extends State<ALCTabPage> {
     return IndexedStack(
       index: _position,
       children: <Widget>[
-        WebView(
-          key: _key,
-          initialUrl: 'https://www.alc.ca/content/alc-mobile/en.html',
-          onProgress: (int loaded) {
-            if (!this.mounted) {
+        Container(
+          child: WebView(
+            key: _key,
+            initialUrl: 'https://www.alc.ca/content/alc-mobile/en.html',
+            onProgress: (int loaded) {
+              if (!this.mounted) {
+                setState(() {
+                  _progress = loaded.toDouble();
+                });
+              }
+            },
+            javascriptMode: JavascriptMode.unrestricted,
+            onPageFinished: (String url) {
               setState(() {
-                _progress = loaded.toDouble();
+                _position = 0;
               });
-            }
-          },
-          javascriptMode: JavascriptMode.unrestricted,
-          onPageFinished: (String url) {
-            setState(() {
-              _position = 0;
-            });
-            _showAlertDialog(context);
-          },
+              _showAlertDialog(context);
+            },
+          ),
         ),
         Container(
           child: Padding(
