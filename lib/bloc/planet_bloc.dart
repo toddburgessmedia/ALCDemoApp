@@ -21,7 +21,7 @@ class PlanetBloc extends Bloc<PlanetEvent,PlanetState> {
         final mars = await _planetRepository.getMars();
         yield PlanetLoaded(mars);
       } on Exception {
-        yield PlanetError("Unable to load Mars");
+        yield PlanetError('Unable to load Mars');
       }
     }
     if (event is GetPlanets) {
@@ -31,12 +31,11 @@ class PlanetBloc extends Bloc<PlanetEvent,PlanetState> {
     }
     try {
     } on Exception {
-      yield PlanetError("Unable to load the planets");
+      yield PlanetError('Unable to load the planets');
     }
 
     if (event is GetPlanetsFiltered) {
       try {
-        print('filtered!! ${event.diameter}');
         yield PlanetLoading();
         final planets = await _planetRepository.getPlanets();
         final planetsFiltered = Planets(PlanetsUtility.filterByRadius(planets.planets, event.diameter));
