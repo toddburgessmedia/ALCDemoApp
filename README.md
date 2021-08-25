@@ -1,16 +1,21 @@
-# mars_flutter
+# ALC Demo App
 
-A new Flutter project.
+An implementation of the ALC Demo app based around the BLOC pattern
+by Todd Burgess (todd@toddburgessmedia.com)
 
-## Getting Started
+## Requirements
 
-This project is a starting point for a Flutter application.
+Flutter 2.0 or greater 
+Dart 2.0 or greater
+Android virtual device or Android phone
 
-A few resources to get you started if this is your first Flutter project:
+## Running the app
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Connect an Android phone to the computer using USB or start the Android emulator
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+In the project root directory execute the following commands
+
+```
+flutter pub get
+flutter run
+```
