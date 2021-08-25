@@ -18,13 +18,15 @@ class PlanetsTabPage extends StatelessWidget {
       children: [BlocBuilder<PlanetBloc, PlanetState>(
           builder: (context, state) {
             if (state is PlanetLoading) {
-              return Text("Loading Planets....");
+              return Text('Loading Planets....');
             } else if (state is AllPlanetsLoaded) {
               return PlanetsTabsPageDisplay(planets: state.planets);
             } else if (state is PlanetsFiltered) {
               return PlanetsTabsPageDisplay(planets: state.planets);
+            } else if (state is PlanetError) {
+              return Text('Unable to Load Planets');
             } else {
-              return Text("invalid state");
+              return Text('invalid state');
             }
           },
         )],
