@@ -1,6 +1,5 @@
 
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:mars_flutter/model/planet.dart';
 
