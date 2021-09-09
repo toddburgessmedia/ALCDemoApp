@@ -22,12 +22,11 @@ class MarsRepository {
 
   Future<Planet> getMars() async {
 
-    // final marsService = MarsService.create(chopper);
-    // final response = await marsService.getMars();
-    // final jsonDate = json.decode(response.bodyString);
-    // print(response.bodyString);
+    final marsService = MarsService.create(chopper);
+    final response = await marsService.getMars();
+    final jsonData = json.decode(response.bodyString);
 
-    final jsonData = json.decode(DummyData.marsData);
+    // final jsonData = json.decode(DummyData.marsData);
     final marsList = Planet.fromJson(jsonData);
 
     return marsList;
