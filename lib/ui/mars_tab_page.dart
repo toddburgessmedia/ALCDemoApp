@@ -14,7 +14,7 @@ class MarsTabPage extends StatelessWidget {
     planetBloc.add(GetMars());
     return BlocBuilder<PlanetBloc, PlanetState>(
       builder: (context, state) {
-        if (state is PlanetInitial) {
+        if (state is PlanetLoading) {
           return Text("Loading Mars");
         } else if (state is PlanetLoaded) {
             return MarsTabPageDisplay(state.planet);
