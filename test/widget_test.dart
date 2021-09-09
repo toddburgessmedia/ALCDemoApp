@@ -6,7 +6,7 @@ import 'package:mars_flutter/main.dart';
 
 void main() {
   testWidgets('Test TabView exists with proper parameters', (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(ALCTestApp());
 
     // Verify that the tabs exist with the proper tab titles
     expect(find.text('Mars'), findsOneWidget);

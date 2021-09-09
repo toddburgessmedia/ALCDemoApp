@@ -27,6 +27,7 @@ class _ALCTabPageState extends State<ALCTabPage> {
           child: Text("Awesome"),
           onPressed: () {
             Navigator.of(context).pop();
+            Navigator.of(context).pop();
           },
         )
       ],

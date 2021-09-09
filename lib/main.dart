@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mars_flutter/bloc/mars_cubit.dart';
-import 'package:mars_flutter/bloc/planet_bloc.dart';
-import 'package:mars_flutter/repository/mars_repository.dart';
 import 'package:mars_flutter/ui/alc_home_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ALCTestApp());
 }
 
-class MyApp extends StatefulWidget {
+class ALCTestApp extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _ALCTestAppState createState() => _ALCTestAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _ALCTestAppState extends State<ALCTestApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
