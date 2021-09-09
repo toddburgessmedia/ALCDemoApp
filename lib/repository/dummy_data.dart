@@ -24,21 +24,6 @@ class DummyData {
   '''{
     "planets": [
     {
-        "planetName": "Venus",
-        "diameter": 12104,
-        "imageThumbnail": "http://www.solstation.com/stars/venus.gif",
-        "extra": {
-            "distanceToSun": 108000000,
-            "distanceToEarth": 40000000,
-            "facts": [
-                "Venus was a song by Banaarama",
-                "The Soviet Union visited Venus ",
-                "Venus is closer to the sun than earth",
-                "Venus comes after Mercury"
-            ]
-          }
-    },
-    {
       "planetName": "Mars",
       "diameter": 6779,
       "imageThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/220px-OSIRIS_Mars_true_color.jpg",
@@ -52,6 +37,21 @@ class DummyData {
               "Mars has two moons: Phobos and Deimos"
           ]
       }
+    },
+    {
+        "planetName": "Venus",
+        "diameter": 12104,
+        "imageThumbnail": "http://www.solstation.com/stars/venus.gif",
+        "extra": {
+            "distanceToSun": 108000000,
+            "distanceToEarth": 40000000,
+            "facts": [
+                "Venus was a song by Banaarama",
+                "The Soviet Union visited Venus ",
+                "Venus is closer to the sun than earth",
+                "Venus comes after Mercury"
+            ]
+          }
     }
     ]
   }''';

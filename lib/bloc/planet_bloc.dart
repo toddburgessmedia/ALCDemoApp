@@ -27,7 +27,8 @@ class PlanetBloc extends Bloc<PlanetEvent,PlanetState> {
     if (event is GetPlanets) {
       yield PlanetLoading();
       final planets = await _planetRepository.getPlanets();
-      yield AllPlanetsLoaded(planets);
+      final planetsFiltered = Planets(PlanetsUtility.sortDescending(planets.planets));
+      yield AllPlanetsLoaded(planetsFiltered);
     }
     try {
     } on Exception {

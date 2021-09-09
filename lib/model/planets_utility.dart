@@ -10,7 +10,7 @@ class PlanetsUtility {
 
   static List<Planet> sortDescending(List<Planet> target) {
 
-    target.sort((a,b) {
+    target.sort((b,a) {
       return a.diameter.compareTo(b.diameter);
     });
 
